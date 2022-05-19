@@ -28,3 +28,4 @@ jobs:
           context: .
           platforms: linux/arm/v7
           push: true
+          tags: user/app:latest
