@@ -23,7 +23,7 @@ WORKDIR /app
 # copy app from the official image
 COPY --from=metabase/metabase:latest /app /app
 
-RUN chown -R metabase /app
+RUN chown -R metabase /app && mkdir /data/
 
 USER metabase
 # expose our default runtime port
