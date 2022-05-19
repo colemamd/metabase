@@ -18,12 +18,14 @@ RUN apt-get update -yq && apt-get install -yq bash ttf-dejavu fontconfig curl op
     mkdir -p /plugins && chmod a+rwx /plugins && \
     useradd --shell /bin/bash metabase
 
-USER metabase
 WORKDIR /app
 
 # copy app from the official image
 COPY --from=metabase/metabase:latest /app /app
 
+RUN chown -R metabase /app
+
+USER metabase
 # expose our default runtime port
 EXPOSE 3000
 
