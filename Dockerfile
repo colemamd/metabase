@@ -7,7 +7,7 @@ FROM adoptopenjdk/openjdk11:debianslim-jre
 ENV FC_LANG en-US LC_CTYPE en_US.UTF-8
 
 # dependencies
-RUN apt-get update -yq && apt-get install -yq bash ttf-dejavu fontconfig curl wget openjdk-11-jre-headless && \
+RUN apt-get update -yq && apt-get install -yq bash ttf-dejavu fontconfig curl wget unzip openjdk-11-jre-headless && \
     apt-get clean && \
     rm -rf /var/lib/{apt,dpkg,cache,log}/ && \
     mkdir -p /app/certs && \
