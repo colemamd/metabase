@@ -23,7 +23,7 @@ WORKDIR /app
 # copy app from the official image
 COPY --from=metabase/metabase:latest /app /app
 
-RUN chown -R metabase /app && mkdir /data/ && \
+RUN mkdir /data/ && chown -R metabase /app && chown -R metabase /data && \
     wget https://crowdsec-statics-assets.s3-eu-west-1.amazonaws.com/metabase_sqlite.zip && \
     unzip metabase_sqlite.zip -d /data/
 
