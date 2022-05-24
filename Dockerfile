@@ -23,9 +23,9 @@ WORKDIR /app
 # copy app from the official image
 COPY --from=metabase/metabase:latest /app /app
 
-RUN mkdir /data/ && chown -R metabase /app && chown -R metabase /data && \
+RUN mkdir /data/  && \
     wget https://crowdsec-statics-assets.s3-eu-west-1.amazonaws.com/metabase_sqlite.zip && \
-    unzip metabase_sqlite.zip -d /data/
+    unzip metabase_sqlite.zip -d /data/ && chown -R metabase /app && chown -R metabase /data 
 
 USER metabase
 # expose our default runtime port
